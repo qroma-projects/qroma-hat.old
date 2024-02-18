@@ -24,6 +24,14 @@ export default {
         },
         {
           type: 'doc',
+          id: 'parts-list',
+        },
+        {
+          type: 'doc',
+          id: 'project-notes',
+        },
+        {
+          type: 'doc',
           id: 'dgsr-image-format',
         },
       ],

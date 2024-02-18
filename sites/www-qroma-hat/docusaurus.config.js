@@ -122,7 +122,7 @@ const config = {
                 label: 'qroma.dev',
               },
               {
-                href: 'https://qroma-projects.org',
+                href: 'https://www.qroma-projects.org',
                 label: 'Other qroma projects',
               },
             ],
