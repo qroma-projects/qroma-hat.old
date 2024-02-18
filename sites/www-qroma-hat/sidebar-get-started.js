@@ -22,6 +22,10 @@ export default {
           href: "/docs/intro",
           label: "Project Documentation",
         },
+        {
+          type: 'doc',
+          id: 'dgsr-image-format',
+        },
       ],
     }
   ]
