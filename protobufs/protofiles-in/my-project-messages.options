@@ -1,0 +1,17 @@
+HelloQromaRequest.name  max_size:20  fixed_length:true
+
+HelloQromaResponse.response  max_size:50  fixed_length: true
+
+ProgressIndicatorUpdateResponse.progressIndicator  max_size:50
+
+MyProjectDetails.projectName  max_size:50  fixed_length: true
+
+FirmwareDetails.version  max_size:30  fixed_length: true
+
+FirmwareDetails.buildTime  max_size:30  fixed_length: true
+
+FirmwareDetails.boardName  max_size:30  fixed_length: true
+
+SetBoardLightColorResponse.message  max_size:50  fixed_length: false
+
+InvalidCommandResponse.message  max_size:50  fixed_length: false

@@ -1,0 +1,112 @@
+# all directories in this file are located relative to the project root
+
+[qroma.project]
+id = "qroma-hat"
+name = "qroma-hat"
+# use semantic versioning - see https://en.wikipedia.org/wiki/Software_versioning [Semantic versioning]
+version = "0.1.0"
+
+
+[qroma.project.dirs]
+pb_root = "{{ qroma_project_dir }}/protobufs"
+firmware_root = "{{ qroma_project_dir }}/firmware/esp32-qroma-hat"
+app_root = "{{ qroma_project_dir }}/apps/py-qroma-hat"
+site_root = "{{ qroma_project_dir }}/sites/www-qroma-hat"
+
+
+[qroma.project.firmware]
+platforms = [
+  "platformio",
+]
+
+
+[qroma.project.run.commands.firmware.platformio]
+build = "run"
+install = "run --target upload --environment esp32dev"
+monitor = ""
+
+[qroma.project.stages.sw.protobuf]
+root_dir = "{{ qroma.project_dirs.pb_root }}/protobufs"
+compilers = [
+  "nanopb",
+  "python",
+  "typescript",
+  "dart",
+]
+
+[[qroma.project.stages.sw.protobuf.sources]]
+source_path = "{{ qroma.project_dirs.pb_root }}/protofiles-in"
+dest_path = "{{ qroma.project_dirs.pb_root }}/protofiles-out"
+
+
+[qroma.project.stages.sw.protobuf.replication]
+nanopb.dirs = ["{{ qroma.project_dirs.firmware_root }}/src/qroma-proto", ]
+python.dirs = ["{{ qroma.project_dirs.app_root }}/qroma_proto", ]
+typescript.dirs = ["{{ qroma.project_dirs.site_root }}/src/qroma-proto", ]
+dart.dirs = []
+
+
+[qroma.project.stages.sw.firmware]
+project_dirs = []
+
+
+[qroma.project.stages.sw.apps]
+project_dirs = []
+
+
+[qroma.project.stages.sw.sites]
+project_dirs = []
+
+
+[qroma.project.stages.sw.sites.bundle]
+local_bundle_static_dir="{{ qroma.project_dirs.site_root }}/static"
+local_bundle_static_qroma_dir="{{ qroma.project_dirs.site_root }}/static/qroma"
+local_bundle_version_content_root_dir="{{ qroma.project_dirs.site_root }}/static/qroma/versions"
+hosted_qroma_bundle_root="/qroma"
+hosted_qroma_bundle_versions_root="/qroma/versions"
+hosted_bundle_version_path="/qroma/versions/{{ qroma.project_version }}"
+
+
+# ESP32 Dev Board firmware and manifest files
+[[qroma.project.stages.sw.sites.bundle.publish_version.firmware_file_replications]]
+source_filepath="{{ qroma.project_dirs.firmware_root }}/.pio/build/esp32dev/qroma-hat-firmware-esp32.bin"
+local_publication_filepath="{{ qroma.project_dirs.site_root }}/static/qroma/versions/{{ qroma.project_version }}/firmware/esp32dev/qroma-hat-firmware-esp32.bin"
+hosted_publication_filepath="/qroma/versions/{{ qroma.project_version }}/firmware/esp32dev/qroma-hat-firmware-esp32.bin"
+
+[[qroma.project.stages.sw.sites.bundle.publish_version.firmware_file_replications]]
+source_filepath="{{ qroma.project_dirs.firmware_root }}/.pio/build/esp32dev/qroma-hat-manifest-esp32.json"
+local_publication_filepath="{{ qroma.project_dirs.site_root }}/static/qroma/versions/{{ qroma.project_version }}/firmware/esp32dev/qroma-hat-manifest-esp32.json"
+hosted_publication_filepath="/qroma/versions/{{ qroma.project_version }}/firmware/esp32dev/qroma-hat-manifest-esp32.json"
+
+
+# TinyPico Board firmware and manifest files
+[[qroma.project.stages.sw.sites.bundle.publish_version.firmware_file_replications]]
+source_filepath="{{ qroma.project_dirs.firmware_root }}/.pio/build/tinypico/qroma-hat-firmware-um_tinypico.bin"
+local_publication_filepath="{{ qroma.project_dirs.site_root }}/static/qroma/versions/{{ qroma.project_version }}/firmware/tinypico/qroma-hat-firmware-um_tinypico.bin"
+hosted_publication_filepath="/qroma/versions/{{ qroma.project_version }}/firmware/tinypico/qroma-hat-firmware-um_tinypico.bin"
+
+[[qroma.project.stages.sw.sites.bundle.publish_version.firmware_file_replications]]
+source_filepath="{{ qroma.project_dirs.firmware_root }}/.pio/build/tinypico/qroma-hat-manifest-um_tinypico.json"
+local_publication_filepath="{{ qroma.project_dirs.site_root }}/static/qroma/versions/{{ qroma.project_version }}/firmware/tinypico/qroma-hat-manifest-um_tinypico.json"
+hosted_publication_filepath="/qroma/versions/{{ qroma.project_version }}/firmware/tinypico/qroma-hat-manifest-um_tinypico.json"
+
+
+# Adafruit QT Py Board firmware and manifest files
+[[qroma.project.stages.sw.sites.bundle.publish_version.firmware_file_replications]]
+source_filepath="{{ qroma.project_dirs.firmware_root }}/.pio/build/adafruit_qtpy_esp32c3/qroma-hat-firmware-adafruit_qtpy_esp32c3.bin"
+local_publication_filepath="{{ qroma.project_dirs.site_root }}/static/qroma/versions/{{ qroma.project_version }}/firmware/adafruit_qtpy_esp32c3/qroma-hat-firmware-adafruit_qtpy_esp32c3.bin"
+hosted_publication_filepath="/qroma/versions/{{ qroma.project_version }}/firmware/adafruit_qtpy_esp32c3/qroma-hat-firmware-adafruit_qtpy_esp32c3.bin"
+
+[[qroma.project.stages.sw.sites.bundle.publish_version.firmware_file_replications]]
+source_filepath="{{ qroma.project_dirs.firmware_root }}/.pio/build/adafruit_qtpy_esp32c3/qroma-hat-manifest-adafruit_qtpy_esp32c3.json"
+local_publication_filepath="{{ qroma.project_dirs.site_root }}/static/qroma/versions/{{ qroma.project_version }}/firmware/adafruit_qtpy_esp32c3/qroma-hat-manifest-adafruit_qtpy_esp32c3.json"
+hosted_publication_filepath="/qroma/versions/{{ qroma.project_version }}/firmware/adafruit_qtpy_esp32c3/qroma-hat-manifest-adafruit_qtpy_esp32c3.json"
+
+
+[[qroma.project.stages.sw.sites.bundle.publish_version.zipped_dirs]]
+source_dir="{{ qroma.project_dirs.pb_root }}/protofiles-out"
+local_publication_zip_file="{{ qroma.project_dirs.site_root }}/static/qroma/versions/{{ qroma.project_version }}/protobufs.zip"
+
+
+[qroma.project.stages.sw.sites.bundle.publish_version]
+generated_files = []

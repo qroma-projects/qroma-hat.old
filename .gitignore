@@ -1,0 +1,4 @@
+/device-io/protobufs/protofiles-out
+**/.idea
+**/__pycache__/
+qroma-resolved.toml

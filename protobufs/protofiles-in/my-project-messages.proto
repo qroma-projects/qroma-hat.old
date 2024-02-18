@@ -1,0 +1,169 @@
+syntax = "proto3";
+
+
+message HelloQromaRequest {
+  string name = 1;
+}
+
+message HelloQromaResponse {
+  string response = 1;
+  uint32 callCount = 2;
+  uint32 nameLength = 3;
+}
+
+
+enum MathOperation {
+  MathOp_NotSet = 0;
+  MathOp_Add = 1;
+  MathOp_Subtract = 2;
+  MathOp_Add_And_Subtract = 3;
+}
+
+message MathRequest {
+  uint32 a = 1;
+  uint32 b = 2;
+  MathOperation op = 3;
+}
+
+message MathResult_Add {
+  uint32 result = 1;
+}
+
+message MathResult_Subtract {
+  uint32 result = 1;
+}
+
+message MathResult_AddAndSubtract {
+  uint32 addResult = 1;
+  uint32 subtractResult = 2;
+}
+
+message MathResponse {
+  oneof response {
+    MathResult_Add addResult = 1;
+    MathResult_Subtract subtractResult = 2;
+    MathResult_AddAndSubtract addAndSubtractResult = 3;
+  }
+}
+
+
+enum UpdateType {
+  UpdateType_NotSet = 0;
+  UpdateType_None = 1;
+  UpdateType_Interval = 2;
+  UpdateType_ProgressIndicator = 3;
+}
+
+message FwUpdateConfiguration {
+  UpdateType updateType = 1;
+  uint32 updateIntervalInMs = 2;
+}
+
+message SetUpdateConfiguration {
+  FwUpdateConfiguration updateConfiguration = 1;
+  bool saveConfiguration = 2;
+}
+
+message SetUpdateConfigurationResponse {
+  bool success = 1;
+  FwUpdateConfiguration updateConfiguration = 2;
+}
+
+message UptimeUpdateResponse {
+  uint32 uptime = 1;
+}
+
+message ProgressIndicatorUpdateResponse {
+  string progressIndicator = 1;
+}
+
+message UpdateResponse {
+  oneof update {
+    UptimeUpdateResponse uptimeUpdateResponse = 1;
+    ProgressIndicatorUpdateResponse progressIndicatorUpdateResponse = 2;
+  }
+}
+
+message PingRequest {
+  uint32 pingId = 1;
+}
+
+message PingResponse {
+  uint32 pingId = 1;
+  uint32 uptime = 2;
+}
+
+
+message MyProjectDetails {
+  string projectName = 1;
+}
+
+message FirmwareDetails {
+  string version = 1;
+  string buildTime = 2;
+  string boardName = 3;
+}
+
+message GetBoardDetailsRequest {
+  bool ignoreThis = 1;
+}
+
+message GetBoardDetailsResponse {
+  MyProjectDetails projectDetails = 1;
+  FirmwareDetails firmwareDetails = 2;
+}
+
+
+message SetBoardLightColorRequest {
+  uint32 red = 1;
+  uint32 green = 2;
+  uint32 blue = 3;
+}
+
+message SetBoardLightColorResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+enum NoArgCommands {
+  Nac_NotSet = 0;
+  Nac_GetBoardDetailsRequest = 1;
+  Nac_LoadBoardConfiguration = 2;
+  Nac_RestartDevice          = 3;
+}
+
+message LoadBoardConfigurationResponse {
+  bool success = 1;
+  FwUpdateConfiguration loadedConfiguration = 2;
+}
+
+message InvalidCommandResponse {
+  string message = 1;
+}
+
+
+message MyProjectCommand {
+  oneof command {
+    NoArgCommands noArgCommand = 1;
+    HelloQromaRequest helloQromaRequest = 2;
+    MathRequest mathRequest = 3;
+    SetUpdateConfiguration setUpdateConfiguration = 4;
+    PingRequest pingRequest = 5;
+    GetBoardDetailsRequest getBoardDetailsRequest = 6;
+    SetBoardLightColorRequest setBoardLightColorRequest = 7;
+  }
+}
+
+message MyProjectResponse {
+  oneof response {
+    InvalidCommandResponse invalidCommandResponse = 1;
+    HelloQromaResponse helloQromaResponse = 2;
+    MathResponse mathResponse = 3;
+    SetUpdateConfigurationResponse setUpdateConfigurationResponse = 4;
+    PingResponse pingResponse = 5;
+    UpdateResponse updateResponse = 6;
+    SetBoardLightColorResponse setBoardLightColorResponse = 7;
+    GetBoardDetailsResponse getBoardDetailsResponse = 8;
+    LoadBoardConfigurationResponse loadBoardConfigurationResponse = 9;
+  }
+}
