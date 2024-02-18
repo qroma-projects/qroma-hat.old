@@ -20,3 +20,6 @@ TODOs:
 * [ ] pull web UI content from implementation at https://www.devalbo.com/prototypes/qromatech/svg-to-greyscale-arduino-file
 * [X] find 3D printer files
 * [ ] integrate 3D printer files with project
+  * [ ] STL viewer component? - see https://3dviewer.net/ (repo: https://github.com/kovacsv/Online3DViewer)
+
+
