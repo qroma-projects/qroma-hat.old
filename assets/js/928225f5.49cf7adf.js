@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwww_qroma_project=self.webpackChunkwww_qroma_project||[]).push([[4828],{9781:a=>{a.exports=JSON.parse('{"label":"facebook","permalink":"/qroma-hat/blog/tags/facebook","allTagsPath":"/qroma-hat/blog/tags","count":1,"unlisted":false}')}}]);

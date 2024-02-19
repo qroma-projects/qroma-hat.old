@@ -1,0 +1,1 @@
+{"name": "qroma-hat", "version": "esp32", "builds": [{"chipFamily": "ESP32", "parts": [{"path": "qroma-hat-firmware-esp32.bin", "offset": 0}]}]}

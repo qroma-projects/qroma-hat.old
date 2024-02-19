@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwww_qroma_project=self.webpackChunkwww_qroma_project||[]).push([[1719],{1904:o=>{o.exports=JSON.parse('{"permalink":"/qroma-hat/blog/tags/docusaurus","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
