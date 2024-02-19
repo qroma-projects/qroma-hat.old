@@ -47,7 +47,7 @@ export const createInitialComponentState = (
 }
 
 
-class ReducerClass extends ImmerReducer<IComponentState> {
+export class UpdateComponentStateFunctions extends ImmerReducer<IComponentState> {
   setSvgText(svgText: string) {
     if (this.draftState.svgImageText !== svgText) {
       this.draftState.svgImageText = svgText;
@@ -95,5 +95,5 @@ class ReducerClass extends ImmerReducer<IComponentState> {
 }
 
 
-export const ActionCreators = createActionCreators(ReducerClass);
-export const componentStateReducerFunction = createReducerFunction(ReducerClass);
+export const ActionCreators = createActionCreators(UpdateComponentStateFunctions);
+export const componentStateReducerFunction = createReducerFunction(UpdateComponentStateFunctions);

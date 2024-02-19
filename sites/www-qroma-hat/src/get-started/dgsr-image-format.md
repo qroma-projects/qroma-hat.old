@@ -16,9 +16,9 @@ A Devalbo Grayscale Run (DGSR) image file consists of a `dgsr_header`, followed 
 
 ```
 dgsr_header {
-  char magic[4];            // magic bytes "dgsr"
-  uint32_t width;           // image width in pixels (BE)
-  uint32_t height;          // image height in pixels (BE)
+  char magic[4];            // 4 magic bytes "dgsr"
+  uint32_t width;           // image width in pixels (4 bytes - BE)
+  uint32_t height;          // image height in pixels (4 bytes - BE)
 };
 ```
 
@@ -40,6 +40,7 @@ DGSR_OP_SHORT_RUN
 DGSR_OP_MEDIUM_RUN
 DGSR_OP_LONG_RUN
 
+
 ┌─ DGSR_OP_PLACE_PIXEL ──┐
 │        Byte[0]         │
 │ 7  6  5  4  3  2  1  0 │
@@ -55,12 +56,14 @@ DGSR_OP_LONG_RUN
 │ 0  1 │  Run length     │
 └────────────────────────┘
 
+
 ┌─ DGSR_OP_MEDIUM_RUN ───┬─────────┐
 │        Byte[0]         │ Byte[1] │
 │ 7  6  5  4  3  2  1  0 │ 7 .. 0  │
 │────────────────────────┼─────────│
 │ 1  0 │  Run length bits (14)     │
 └────────────────────────┴─────────┘
+
 
 ┌─ DGSR_OP_LONG_RUN ─────┬─────────┬─────────┬─────────┐
 │        Byte[0]         │ Byte[1] │ Byte[2] │ Byte[3] │

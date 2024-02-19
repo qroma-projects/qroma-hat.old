@@ -1,3 +1,4 @@
+import { sleep } from "../utils";
 
 const qromaWebSerialContext = {
   initialized: false,
@@ -233,11 +234,36 @@ export const useQromaWebSerial = (
   }
 
   const sendBytes = async (data: Uint8Array) => {
+    if (data.length > 2000) {
+      console.log("SENDING BYTES IN CHUNKS");
+      await sendBytesInChunks(data, 500, 100);
+      console.log("DONE SENDING DATA IN CHUNKS");
+      return;
+    }
+
     const port = await requestPort();
     console.log(port);
     const writer = port.writable.getWriter();
 
     await writer.write(data);
+    writer.releaseLock();
+  }
+
+  const sendBytesInChunks = async (data: Uint8Array, chunkSize: number, delayInMs: number) => {
+    const chunks: Uint8Array[] = [];
+    for (let i = 0; i < data.length; i += chunkSize) {
+        chunks.push(data.slice(i, i + chunkSize));
+    }
+
+    const port = await requestPort();
+    console.log(port);
+    const writer = port.writable.getWriter();
+
+    for (let i = 0; i < chunks.length; i++) {
+      await writer.write(chunks[i]);
+      await sleep(delayInMs);
+    }
+
     writer.releaseLock();
   }
 
