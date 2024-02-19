@@ -36,6 +36,21 @@ const SvgToGreyscaleArduinoFileTool = () => {
 
   return (
     <>
+      <div style={{
+        // width: UI_IMAGE_WIDTH,
+        // height: 800,
+        // transformOrigin: "0 0",
+        // WebkitTransform: "scale(" + UI_IMAGE_SCALING_FACTOR + ")",
+        }}>
+
+        <ImageOutputView 
+          componentState={state}
+          onNewGrayscaleData={onNewGrayscaleData}
+          onNewSvgImageAsDataUrl={onNewSvgImageAsDataUrl}
+          />
+      </div>
+
+      <div style={{marginBottom: 20}} />
       <SvgTemplateSelector
         svgTemplateIndex={svgTemplateIndex}
         onNewSvgTemplateSelected={(templateIndex, newSvgTemplate) => {
@@ -51,20 +66,7 @@ const SvgToGreyscaleArduinoFileTool = () => {
         svgTemplateInputs={state.svgTemplateInputs}
         onNewSvgTemplateInputs={onNewSvgTemplateInputs}
         />
-
-      <div style={{
-        // width: UI_IMAGE_WIDTH,
-        // height: 800,
-        // transformOrigin: "0 0",
-        // WebkitTransform: "scale(" + UI_IMAGE_SCALING_FACTOR + ")",
-        }}>
-
-        <ImageOutputView 
-          componentState={state}
-          onNewGrayscaleData={onNewGrayscaleData}
-          onNewSvgImageAsDataUrl={onNewSvgImageAsDataUrl}
-          />
-      </div>
+      <div style={{marginBottom: 20}} />
 
       {
         SvgToGrayscaleTemplates[svgTemplateIndex].formProvider({

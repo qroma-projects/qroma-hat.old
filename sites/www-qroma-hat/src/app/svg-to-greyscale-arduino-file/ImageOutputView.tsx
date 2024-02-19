@@ -178,52 +178,60 @@ export const ImageOutputView = (props: ImageOutputViewProps) => {
       </div>
 
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-      <Tabs 
-        value={value} 
-        onChange={handleChange} 
-        aria-label="basic tabs example"
-        variant="scrollable"
-        >
-        <Tab label="SVG Text" {...a11yProps(0)} />
-        <Tab label="SVG Image" {...a11yProps(1)} />
-        <Tab label="Grayscale" {...a11yProps(2)} />
-        <Tab label="Arduino" {...a11yProps(3)} />
-        <Tab label="Arduino/DGSR" {...a11yProps(4)} />
-      </Tabs>
-    </Box>
-    <TabPanel value={value} index={0}>
-      <SvgTextPanel
-        svgInputText={props.componentState.svgImageText}
-        />
-    </TabPanel>
-    <TabPanel value={value} index={1}>      
-      <div style={{
-        width: UI_IMAGE_WIDTH,
-        height: UI_IMAGE_HEIGHT,
-        }}>
-
-        <img 
-          src={props.componentState.svgImageAsDataUrl}
+        <Tabs 
+          value={value} 
+          onChange={handleChange} 
+          aria-label="basic tabs example"
+          variant="scrollable"
+          >
+          <Tab label="SVG Text" {...a11yProps(0)} />
+          <Tab label="SVG Image" {...a11yProps(1)} />
+          <Tab label="Grayscale" {...a11yProps(2)} />
+          {/* <Tab label="Arduino" {...a11yProps(3)} />
+          <Tab label="Arduino/DGSR" {...a11yProps(4)} /> */}
+          <Tab label="Upload" {...a11yProps(3)} />
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
+        <SvgTextPanel
+          svgInputText={props.componentState.svgImageText}
           />
-      </div>
-    </TabPanel>
-    <TabPanel value={value} index={2}>
-      <GrayscaleConversionOutputImage 
-        componentState={props.componentState}
-        />
-    </TabPanel>
-    <TabPanel value={value} index={3}>
-      <ArduinoOutputView 
+      </TabPanel>
+      <TabPanel value={value} index={1}>      
+        <div style={{
+          width: UI_IMAGE_WIDTH,
+          height: UI_IMAGE_HEIGHT,
+          }}>
+
+          <img 
+            src={props.componentState.svgImageAsDataUrl}
+            />
+        </div>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <GrayscaleConversionOutputImage 
+          componentState={props.componentState}
+          />
+      </TabPanel>
+      {/* <TabPanel value={value} index={3}>
+        <ArduinoOutputView 
+          gsData={props.componentState.grayscaleData}
+          svgTemplateInputs={props.componentState.svgTemplateInputs}
+          />
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        <ArduinoDgsrOutputView 
+          gsData={props.componentState.grayscaleData}
+          svgTemplateInputs={props.componentState.svgTemplateInputs}
+          />
+      </TabPanel> */}
+      <TabPanel value={value} index={3}>
+      {/* <ArduinoDgsrOutputView 
         gsData={props.componentState.grayscaleData}
         svgTemplateInputs={props.componentState.svgTemplateInputs}
-        />
-    </TabPanel>
-    <TabPanel value={value} index={4}>
-      <ArduinoDgsrOutputView 
-        gsData={props.componentState.grayscaleData}
-        svgTemplateInputs={props.componentState.svgTemplateInputs}
-        />
-    </TabPanel>
+        /> */}
+        <div>Upload</div>
+      </TabPanel>
     </Box>
     </>
   )
