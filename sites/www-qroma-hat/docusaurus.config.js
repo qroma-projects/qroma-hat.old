@@ -98,6 +98,7 @@ const config = {
         items: [
           {to: '/licenses', label: 'Licenses', position: 'left'},
           {to: '/get-started', label: 'Get Started', position: 'left'},
+          {to: '/app', label: 'App', position: 'left'},
           {to: '/command-device', label: 'Command Device', position: 'left'},
           {
             to: '/advanced-io',

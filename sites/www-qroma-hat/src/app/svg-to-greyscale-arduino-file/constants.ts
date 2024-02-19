@@ -1,0 +1,11 @@
+
+
+export const GS_IMAGE_WIDTH = 960;
+export const GS_IMAGE_HEIGHT = 540;
+
+
+export const UI_IMAGE_SCALING_FACTOR = 0.5;
+// export const UI_IMAGE_SCALING_FACTOR = 1.0;
+
+export const UI_IMAGE_WIDTH = GS_IMAGE_WIDTH * UI_IMAGE_SCALING_FACTOR;
+export const UI_IMAGE_HEIGHT = GS_IMAGE_HEIGHT * UI_IMAGE_SCALING_FACTOR;

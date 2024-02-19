@@ -1,0 +1,9 @@
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import SvgToGreyscaleArduinoFileTool from '../app/svg-to-greyscale-arduino-file';
+
+<BrowserOnly fallback={<div>SvgToGreyscaleArduinoFileTool is only available in the browser</div>}>
+  {() => {
+        return <SvgToGreyscaleArduinoFileTool />;
+  }}
+  
+</BrowserOnly>

@@ -18,9 +18,11 @@ message SetUpdateConfiguration {
 }
 
 enum NoArgCommands {
-  Nac_NotSet        = 0;
-  Nac_ClearScreen   = 1;
-  Nac_GetHatDetails = 2;
+  Nac_NotSet             = 0;
+  Nac_ClearScreenToWhite = 1;
+  Nac_ClearScreenToBlack = 2;
+  Nac_GetHatDetails      = 3;
+  Nac_RestartDevice      = 4;
 }
 
 message MyProjectCommand {

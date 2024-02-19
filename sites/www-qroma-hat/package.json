@@ -16,11 +16,16 @@
   "dependencies": {
     "@docusaurus/core": "^3.0.1",
     "@docusaurus/preset-classic": "^3.0.1",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@mdx-js/react": "^3.0.0",
+    "@mui/material": "^5.15.10",
     "@protobuf-ts/runtime": "^2.8.3",
+    "bitwise": "^2.2.1",
     "buffer": "^6.0.3",
     "clsx": "^1.2.1",
     "crc": "^4.3.2",
+    "immer-reducer": "^0.7.13",
     "prism-react-renderer": "^2.1.0",
     "react": "^18.0.2",
     "react-dom": "^18.0.2"

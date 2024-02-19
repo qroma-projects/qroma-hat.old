@@ -32,13 +32,17 @@ class UpdateType extends $pb.ProtobufEnum {
 
 class NoArgCommands extends $pb.ProtobufEnum {
   static const NoArgCommands Nac_NotSet = NoArgCommands._(0, _omitEnumNames ? '' : 'Nac_NotSet');
-  static const NoArgCommands Nac_ClearScreen = NoArgCommands._(1, _omitEnumNames ? '' : 'Nac_ClearScreen');
-  static const NoArgCommands Nac_GetHatDetails = NoArgCommands._(2, _omitEnumNames ? '' : 'Nac_GetHatDetails');
+  static const NoArgCommands Nac_ClearScreenToWhite = NoArgCommands._(1, _omitEnumNames ? '' : 'Nac_ClearScreenToWhite');
+  static const NoArgCommands Nac_ClearScreenToBlack = NoArgCommands._(2, _omitEnumNames ? '' : 'Nac_ClearScreenToBlack');
+  static const NoArgCommands Nac_GetHatDetails = NoArgCommands._(3, _omitEnumNames ? '' : 'Nac_GetHatDetails');
+  static const NoArgCommands Nac_RestartDevice = NoArgCommands._(4, _omitEnumNames ? '' : 'Nac_RestartDevice');
 
   static const $core.List<NoArgCommands> values = <NoArgCommands> [
     Nac_NotSet,
-    Nac_ClearScreen,
+    Nac_ClearScreenToWhite,
+    Nac_ClearScreenToBlack,
     Nac_GetHatDetails,
+    Nac_RestartDevice,
   ];
 
   static final $core.Map<$core.int, NoArgCommands> _byValue = $pb.ProtobufEnum.initByValue(values);

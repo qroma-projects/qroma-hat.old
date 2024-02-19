@@ -155,13 +155,21 @@ export enum NoArgCommands {
      */
     Nac_NotSet = 0,
     /**
-     * @generated from protobuf enum value: Nac_ClearScreen = 1;
+     * @generated from protobuf enum value: Nac_ClearScreenToWhite = 1;
      */
-    Nac_ClearScreen = 1,
+    Nac_ClearScreenToWhite = 1,
     /**
-     * @generated from protobuf enum value: Nac_GetHatDetails = 2;
+     * @generated from protobuf enum value: Nac_ClearScreenToBlack = 2;
      */
-    Nac_GetHatDetails = 2
+    Nac_ClearScreenToBlack = 2,
+    /**
+     * @generated from protobuf enum value: Nac_GetHatDetails = 3;
+     */
+    Nac_GetHatDetails = 3,
+    /**
+     * @generated from protobuf enum value: Nac_RestartDevice = 4;
+     */
+    Nac_RestartDevice = 4
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class UpdateConfiguration$Type extends MessageType<UpdateConfiguration> {

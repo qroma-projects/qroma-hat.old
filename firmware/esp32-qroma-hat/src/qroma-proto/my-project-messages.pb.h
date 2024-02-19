@@ -18,8 +18,10 @@ typedef enum _UpdateType {
 
 typedef enum _NoArgCommands {
     NoArgCommands_Nac_NotSet = 0,
-    NoArgCommands_Nac_ClearScreen = 1,
-    NoArgCommands_Nac_GetHatDetails = 2
+    NoArgCommands_Nac_ClearScreenToWhite = 1,
+    NoArgCommands_Nac_ClearScreenToBlack = 2,
+    NoArgCommands_Nac_GetHatDetails = 3,
+    NoArgCommands_Nac_RestartDevice = 4
 } NoArgCommands;
 
 /* Struct definitions */
@@ -78,8 +80,8 @@ extern "C" {
 #define _UpdateType_ARRAYSIZE ((UpdateType)(UpdateType_UpdateType_Interval+1))
 
 #define _NoArgCommands_MIN NoArgCommands_Nac_NotSet
-#define _NoArgCommands_MAX NoArgCommands_Nac_GetHatDetails
-#define _NoArgCommands_ARRAYSIZE ((NoArgCommands)(NoArgCommands_Nac_GetHatDetails+1))
+#define _NoArgCommands_MAX NoArgCommands_Nac_RestartDevice
+#define _NoArgCommands_ARRAYSIZE ((NoArgCommands)(NoArgCommands_Nac_RestartDevice+1))
 
 #define UpdateConfiguration_updateType_ENUMTYPE UpdateType
 

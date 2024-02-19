@@ -1,44 +1,21 @@
 ---
-title: Install Device Firmware
+title: Install Firmware
 ---
 
-# Install Device Firmware to ESP32
+# Install Firmware
 
 import { EspWebInstallButton } from '../react-qroma-lib';
 import { createManifestPath } from '../qroma-app/firmwareManifest';
 
 
 Installation of the firmware for qroma-hat is easy to do using a Chrome or Edge desktop
-web browser. Use a USB cable to connect your ESP32 board to your PC, then find the ESP32 board 
-you are using below and click the button to install.
+web browser. Use a USB cable to connect your LilyGo-EPD47 board to your PC and click the button to install.
 
 <div title='ESP32 Dev Board'>
   <EspWebInstallButton
-    label='Install on ESP32 Dev Board'
-    instructionsText="Plug your ESP32 Dev board into your computer's USB port and click the button below to install firmware."
+    label='Install on LilyGo-EPD47 Board'
+    instructionsText="Plug your LilyGo-EPD47 board into your computer's USB port and click the button below to install firmware."
     manifestPath={createManifestPath('qroma/versions/0.1.0/firmware/esp32dev/qroma-hat-manifest-esp32.json')}
-    />
-</div>
-
-<br/>
-<br/>
-
-<div title='TinyPICO Board'>
-  <EspWebInstallButton
-    label='Install on TinyPICO Board'
-    instructionsText="Plug your TinyPICO board into your computer's USB port and click the button below to install firmware."
-    manifestPath={createManifestPath('qroma/versions/0.1.0/firmware/tinypico/qroma-hat-manifest-um_tinypico.json')}
-    />
-</div>
-
-<br/>
-<br/>
-
-<div title='ESP32 Dev Board'>
-  <EspWebInstallButton
-    label='Install on Adafruit QT Py Board'
-    instructionsText="Plug your Adafruit QT Py board into your computer's USB port and click the button below to install firmware."
-    manifestPath={createManifestPath('qroma/versions/0.1.0/firmware/adafruit_qtpy_esp32c3/qroma-hat-manifest-adafruit_qtpy_esp32c3.json')}
     />
 </div>
 
